@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="user"
+            type="com.example.myapplication.User" />
+        <variable
+            name="model"
+            type="com.example.myapplication.UserViewModel" />
+    </data>
+    <RelativeLayout
+        android:id="@+id/activity_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context="mvvm.wangjing.com.mvvm.MainActivity">
+        <TextView
+            android:id="@+id/tv_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:onClick="@{user.onItemClick}"
+            android:text="@{`My name is `+  user.name+`  I'm   `+user.age+`  years old `}" />
+
+        <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_1"
+        android:layout_marginTop="50dp"
+        android:onClick="@{model.onItemClick}"
+        android:text="@={model.user.name}" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv_1"
+            android:layout_marginTop="150dp"
+            android:onClick="@{model.onItemClick}"
+            android:text="点击我" />
+    </RelativeLayout>
+
+
+
+</layout>
